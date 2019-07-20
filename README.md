@@ -21,7 +21,14 @@ You need to add "warrior" to the compatible layers in meta-kodi/conf/layer.conf.
 
 Instructions
 ============
-Setup conf/local.conf, for example:
+Setup your build environment:
+
+```less
+. ./sources/poky/oe-init-build-env
+```
+
+Setup *conf/local.conf*, for example:
+
 ```less
 MACHINE = "raspberrypi3-custom"
 DL_DIR = "/opt/yocto/cache/downloads"
@@ -44,8 +51,8 @@ CONF_VERSION = "1"
 
 ```
 
-Setup conf/bblayers.conf, for example:
- 
+Setup *conf/bblayers.conf*, for example:
+
 ```less
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
@@ -68,7 +75,6 @@ BBLAYERS ?= " \
 
 Build the image:
 ```bash
-. ./sources/poky/oe-init-build-env
 bitbake hubshuffle-image-kodi
 ```
 
@@ -77,7 +83,7 @@ Write the image to an sd card:
 OUT_DEV=<sd card drive name>
 sudo dd if=./tmp/deploy/images/raspberrypi3-custom/hubshuffle-image-kodi-raspberrypi3-custom.rpi-sdimg of=/dev/${OUT_DEV} status=progress 
 ```
- 
+
 ToDo
 ============
  * Permissions need to be configured to allow reboot/shutdown permissions, these options are missing from the Kodi exit menu.
