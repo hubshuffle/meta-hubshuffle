@@ -1,0 +1,9 @@
+[Unit]
+Description=Hubshuffle - Fix user permissions
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/hubshuffle-fix-user-permissions.sh
+
+[Install]
+WantedBy=multi-user.target

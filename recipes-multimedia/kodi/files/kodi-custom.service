@@ -1,0 +1,14 @@
+[Unit]
+Description=Kodi media thing
+
+[Service]
+User=hubshuffle
+Type=simple
+SuccessExitStatus=0 1
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
+
+ExecStart=/usr/bin/kodi
+
+[Install]
+WantedBy=basic.target
